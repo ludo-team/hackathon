@@ -1,18 +1,18 @@
-pragma solidity ^0.4.18;
+pragma solidity ^0.4.19;
 
 contract ScoreStore {
-    
-    mapping (string => int) PersonScores;
-    
-    function addPersonScore(string name, int startingScore) public {
+
+    mapping (string => uint) PersonScores;
+
+    function addPersonScore(string name, uint startingScore) public {
         if (PersonScores[name] > 0) {
-            revert();
+            //revert();
         } else {
             PersonScores[name] = startingScore;
         }
     }
 
-    function getPersonScore(string name) public view returns(int) {
+    function getPersonScore(string name) public view returns(uint) {
         return PersonScores[name];
     }
 }
